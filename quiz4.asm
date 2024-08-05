@@ -12,10 +12,19 @@ _start:
      movzx eax, BYTE[var1] ;Use movzx to be able to move bytes into x64 regs
      movzx ebx, BYTE[var2]
      movzx ecx, BYTE[var3] ;Move variables into registers to push them
-     push    1
-     push    2
-     push    3
+
+     push    eax ;Pass arguments
+     push    ebx
+     push    ecx
+
      call    _foobar
+
+     pop eax ;Clear stack
+     pop ebx
+     pop ecx
+
+     xor ebx, ebx ;Clear registers used to pass arguments
+     xor ecx, ecx
 
      mov     eax, 1
      int     0x80
@@ -66,3 +75,4 @@ _foobar:
     ;
     leave
     ret
+
