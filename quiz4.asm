@@ -1,7 +1,7 @@
 section .data
-    var1 db 1
-    var2 db 2
-    var3 db 3
+    x db 1
+    y db 2
+    z db 3
 
 section .bss
     result resb 1 ;Result to be returned from function
@@ -9,9 +9,9 @@ section .bss
 section .text
         global _start
 _start:
-     movzx eax, BYTE[var1] ;Use movzx to be able to move bytes into x64 regs
-     movzx ebx, BYTE[var2]
-     movzx ecx, BYTE[var3] ;Move variables into registers to push them
+     movzx eax, BYTE[x] ;Use movzx to be able to move bytes into x64 regs
+     movzx ebx, BYTE[y]
+     movzx ecx, BYTE[z] ;Move variables into registers to push them
 
      push    eax ;Pass arguments
      push    ebx
