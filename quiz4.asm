@@ -23,6 +23,7 @@ _start:
      pop ebx
      pop ecx
 
+     xor eax, eax
      xor ebx, ebx ;Clear registers used to pass arguments
      xor ecx, ecx
 
